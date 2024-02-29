@@ -174,34 +174,6 @@ If you wish to activate the dev keypair,
 sosh-set-config dev
 ```
 
-#### Maybe Setup tmpfs
-**WARNING: The information in this section was formulated in Fall 2022, and may no longer be suitable for the currently-recommended validator software release and mainnet state. Caveat emptor.**
-
-Depending on RAM size add an entry like this to `/etc/fstab`:
-
-128GB RAM machine:
-```
-tmpfs /mnt/tmpfs tmpfs rw,size=32G,user=ops,noatime 0 0
-```
-256GB RAM machine:
-```
-tmpfs /mnt/tmpfs tmpfs rw,size=160G,user=ops,noatime 0 0
-```
-512GB RAM machine:
-```
-tmpfs /mnt/tmpfs tmpfs rw,size=256G,user=ops,noatime 0 0
-```
-then
-```
-sudo mkdir /mnt/tmpfs
-sudo mount /mnt/tmpfs
-```
-
-#### Recommended tmpfs configuration
-* 128GB RAM: incremental snapshots
-* 256GB RAM: incremental snapshots, accounts
-* 512GB RAM: : incremental snapshots, full snapshots, accounts
-
 #### Maybe Adjust FileSystem Usage
 
 ##### rocksdb filesystem
