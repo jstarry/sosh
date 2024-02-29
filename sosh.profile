@@ -28,9 +28,7 @@ source "$SOSH"/sosh.bashrc
     echo "$(solana --version): $(readlink -f ~/solana)"
 
     echo --[ $SOSH_CLUSTER config: $SOSH_CONFIG]-----------
-    for keypair in $SOSH_VALIDATOR_IDENTITY $SOSH_VALIDATOR_VOTE_ACCOUNT $SOSH_AUTHORIZED_VOTER; do
-      echo "$(basename "$keypair"): $(solana-keygen pubkey "$keypair")"
-    done
+    print-keys
   )
 )
 true
